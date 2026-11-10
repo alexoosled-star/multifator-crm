@@ -3,7 +3,6 @@
 > **Case Completo de Engenharia de Software:** CRM SaaS corporativo de alto desempenho com arquitetura multi-tenant, segurança em múltiplos fatores (MFA/2FA + Supabase RLS), esteira de agentes autônomos de IA e pipeline comercial avançado.
 
 [![Domínio Oficial](https://img.shields.io/badge/Dom%C3%ADnio%20Oficial-multifatorcrm.com.br-00D2FF?style=for-the-badge&logo=googlechrome&logoColor=black)](https://www.multifatorcrm.com.br)
-[![Demo GitHub Pages](https://img.shields.io/badge/Demo%20Live-GitHub%20Pages-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://alexoosled-star.github.io/multifator-crm/)
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Supabase](https://img.shields.io/badge/Supabase-RLS%20Multi--Tenant-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
@@ -17,7 +16,6 @@
 ## 🌐 Acesso em Produção
 
 * **Domínio Oficial do Produto:** [https://www.multifatorcrm.com.br](https://www.multifatorcrm.com.br)
-* **Ambiente de Demonstração (GitHub Pages):** [https://alexoosled-star.github.io/multifator-crm/](https://alexoosled-star.github.io/multifator-crm/)
 
 ---
 
