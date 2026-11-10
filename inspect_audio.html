@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="locucao_base64.js"></script>
+<div id="output">Processing...</div>
+<script>
+async function run() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioContext();
+    const res = await fetch(window.USER_AUDIO_BASE64);
+    const ab = await res.arrayBuffer();
+    const audioBuf = await ctx.decodeAudioData(ab);
+    
+    const sampleRate = audioBuf.sampleRate;
+    const duration = audioBuf.duration;
+    const ch = audioBuf.getChannelData(0);
+
+    // Analyze around 14s to 19s
+    const stats = [];
+    for (let t = 14.0; t <= 19.0; t += 0.2) {
+      const idx = Math.floor(t * sampleRate);
+      let maxAmp = 0;
+      let sumSq = 0;
+      const windowSize = Math.floor(0.2 * sampleRate);
+      for (let i = 0; i < windowSize && idx + i < ch.length; i++) {
+        const val = Math.abs(ch[idx + i]);
+        if (val > maxAmp) maxAmp = val;
+        sumSq += val * val;
+      }
+      const rms = Math.sqrt(sumSq / windowSize);
+      stats.push({ t: t.toFixed(1), max: maxAmp.toFixed(3), rms: rms.toFixed(4) });
+    }
+
+    document.getElementById('output').innerText = JSON.stringify({
+      duration: duration.toFixed(2),
+      sampleRate: sampleRate,
+      stats: stats
+    });
+  } catch (err) {
+    document.getElementById('output').innerText = 'ERROR: ' + err.message;
+  }
+}
+run();
+</script>
+</body>
+</html>

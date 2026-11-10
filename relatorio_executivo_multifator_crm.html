@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório Executivo & Manual Completo - Multifator CRM SaaS</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #1E40AF;
+      --primary-dark: #0A1428;
+      --accent-cyan: #00D2FF;
+      --text-dark: #1E293B;
+      --text-muted: #64748B;
+      --bg-light: #F8FAFC;
+      --border: #E2E8F0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: #FFFFFF;
+      line-height: 1.6;
+      padding: 2.5rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    /* CONTROLES DE IMPRESSÃO / PDF */
+    .no-print-bar {
+      position: sticky;
+      top: 0;
+      background: #0A1428;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      z-index: 1000;
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #2563EB, #00D2FF);
+      color: #fff;
+      border: none;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+    }
+
+    .btn-print:hover { opacity: 0.95; }
+
+    /* CABEÇALHO DO RELATÓRIO */
+    .report-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .report-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .report-logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #1E40AF, #2563EB, #00D2FF);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+    }
+
+    .report-title-box h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0A1428;
+    }
+
+    .report-title-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .report-meta {
+      text-align: right;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* SEÇÕES E CARDS */
+    h2.section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1E40AF;
+      margin: 2rem 0 1rem 0;
+      border-left: 4px solid #00D2FF;
+      padding-left: 10px;
+    }
+
+    h3.sub-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    .card-explain {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      page-break-inside: avoid;
+    }
+
+    .card-explain strong.tag {
+      display: inline-block;
+      background: #E0F2FE;
+      color: #0369A1;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      page-break-inside: avoid;
+    }
+
+    .example-box {
+      background: #EFF6FF;
+      border-left: 3px solid #2563EB;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0.75rem 0;
+      font-size: 0.88rem;
+    }
+
+    .formula-badge {
+      font-family: monospace;
+      background: #1E293B;
+      color: #38BDF8;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+
+    table.doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem 0;
+      font-size: 0.85rem;
+      page-break-inside: avoid;
+    }
+
+    table.doc-table th, table.doc-table td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    table.doc-table th {
+      background: #0A1428;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+    }
+
+    table.doc-table tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    /* REGRAS DE IMPRESSÃO */
+    @media print {
+      body { padding: 0; font-size: 11pt; color: #000; }
+      .no-print-bar { display: none; }
+      .card-explain, .card-grid, table.doc-table { page-break-inside: avoid; }
+      a { text-decoration: none; color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE CONTROLE PARA DOWNLOAD EM PDF -->
+  <div class="no-print-bar">
+    <div>
+      <strong>📄 Relatório Executivo & Dicionário Completo do Multifator CRM</strong>
+      <p style="font-size: 0.75rem; color: #94A3B8; margin: 0;">Pronto para visualização, impressão ou exportação em PDF</p>
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      🖨️ Imprimir / Salvar em PDF
+    </button>
+  </div>
+
+  <!-- CABEÇALHO DO DOCUMENTO -->
+  <header class="report-header">
+    <div class="report-brand">
+      <div class="report-logo">M</div>
+      <div class="report-title-box">
+        <h1>Multifator CRM SaaS</h1>
+        <p>Documento Técnico, Funcional & Arquitetura de Inteligência Artificial</p>
+      </div>
+    </div>
+    <div class="report-meta">
+      <strong>Data de Emissão:</strong> 01/09/2026<br>
+      <strong>Versão do Sistema:</strong> 2.0 PWA Multi-Agent Swarm<br>
+      <strong>Status:</strong> Homologado & Ativo
+    </div>
+  </header>
+
+  <!-- PARTE 1: VISÃO GERAL & CONCEITO -->
+  <section>
+    <h2 class="section-title">1. Visão Geral: Por que "Multifator"?</h2>
+    <div class="card-explain">
+      <p>
+        A maioria dos CRMs tradicionais (como Pipedrive ou HubSpot) falha no Brasil porque foram criados pensando apenas em funis simples de e-mail. No mundo real de indústrias, construtoras e prestadores de serviços, fechar uma venda depende de <strong>múltiplos fatores simultâneos</strong>:
+      </p>
+      <ul style="margin: 0.75rem 0 0.75rem 1.5rem; font-size: 0.9rem;">
+        <li>Saber o custo exato da matéria-prima antes de dar o preço (para não tomar prejuízo);</li>
+        <li>Responder rápido pelo WhatsApp e mandar a proposta em PDF na hora;</li>
+        <li>O vendedor na rua ter a melhor rota no Waze e dar check-in no cliente;</li>
+        <li>Assinar o contrato no celular com validade jurídica sem pagar DocuSign;</li>
+        <li>Gerar o Pix do Banco Central e emitir a Nota Fiscal (NF-e) na SEFAZ sem erro de imposto.</li>
+      </ul>
+      <p>
+        O <strong>Multifator CRM</strong> une todos esses fatores em uma única engrenagem inteligente.
+      </p>
+    </div>
+  </section>
+
+  <!-- PARTE 2: O QUE É O SWARM DE AGENTES DE IA? -->
+  <section>
+    <h2 class="section-title">2. O que é o "Swarm de Agentes de IA"? (Explicado de Forma Simples)</h2>
+    <div class="card-explain">
+      <strong class="tag">Conceito Descomplicado</strong>
+      <p>
+        <strong>"Swarm"</strong> significa <em>"Enxame"</em>. Em vez de termos apenas um robô genérico que tenta fazer tudo, o Multifator CRM possui uma <strong>equipe de 5 robôs especialistas independentes</strong> trabalhando 24 horas por dia em segundo plano.
+      </p>
+      <p style="margin-top: 6px;">
+        Quando você cria um cliente ou uma proposta, esses 5 agentes conversam entre si instantaneamente através de um barramento de eventos (PubSub), sem você precisar fazer nada manualmente.
+      </p>
+    </div>
+
+    <h3 class="sub-title">Detalhamento dos 5 Agentes Especialistas:</h3>
+
+    <!-- AGENTE 1: BOM -->
+    <div class="card-explain">
+      <strong class="tag" style="background: #FEF3C7; color: #92400E;">📐 Agente 1: Orçamentista & Engenharia de Custos (BOM Engine)</strong>
+      <p><strong>O que significa "BOM"?</strong></p>
+      <p><em>BOM</em> vem do inglês <strong>Bill of Materials</strong> (Lista de Materiais e Insumos). É a "receita de bolo" técnica de qualquer fabricação sob medida.</p>
+      
+      <div class="example-box">
+        <strong>💡 Exemplo Prático de Como Funciona:</strong><br>
+        O vendedor digita: <em>"Fabricação de Mezanino Metálico de 8x10m no valor de R$ 28.000"</em>.<br>
+        O Agente BOM lê essa frase e decompõe sozinho:<br>
+        • <strong>Insumos de Aço e Vigas:</strong> R$ 11.760,00 (42%)<br>
+        • <strong>Mão de Obra de Solda/Corte:</strong> R$ 6.160,00 (22%)<br>
+        • <strong>Engenharia CAD & ART:</strong> R$ 2.800,00 (10%)<br>
+        • <strong>Montagem no Local:</strong> R$ 4.480,00 (16%)<br>
+        • <strong>Frete e Logística:</strong> R$ 2.800,00 (10%)<br>
+        👉 <strong>Resultado:</strong> A IA calcula que o custo total é R$ 20.160,00, a margem de lucro real é <strong>28%</strong> (Saudável) e o prazo de fabricação é de <strong>18 dias úteis</strong>.
+      </div>
+    </div>
+
+    <!-- AGENTE 2: SDR & BRASILAPI -->
+    <div class="card-explain">
+      <strong class="tag" style="background: #E0E7FF; color: #3730A3;">🎯 Agente 2: SDR & Guardião do Funil (BrasilAPI CNPJ)</strong>
+      <p><strong>O que é SDR e BrasilAPI?</strong></p>
+      <p><em>SDR</em> é o pré-vendedor que qualifica o cliente. A <em>BrasilAPI</em> é a ponte de dados que conecta o CRM diretamente aos servidores oficiais da <strong>Receita Federal do Brasil</strong>.</p>
+      
+      <div class="example-box">
+        <strong>💡 Exemplo Prático:</strong><br>
+        Ao digitar o CNPJ <code>45.123.890/0001-12</code>, em 1 segundo a IA preenche sozinha a Razão Social, Nome Fantasia, Endereço, CEP, CNAE (ramo de atividade) e os Sócios da empresa.<br>
+        Além disso, ele monitora o <strong>Score de Churn (RFM)</strong>: se um cliente bom passar mais de 45 dias sem comprar, a IA acende um alerta vermelho para o vendedor ligar para ele.
+      </div>
+    </div>
+
+    <!-- AGENTE 3: FISCAL & SEFAZ -->
+    <div class="card-explain">
+      <strong class="tag" style="background: #DCFCE7; color: #166534;">🧾 Agente 3: Auditor Fiscal & SEFAZ Compliance</strong>
+      <p><strong>O que é NCM, CFOP e Chave Módulo 11?</strong></p>
+      <p>
+        • <strong>NCM:</strong> Código Mercosul que define o tipo do produto (ex: <code>7308.90.10</code> para estruturas de aço).<br>
+        • <strong>CFOP:</strong> Código Fiscal que indica se a venda é dentro do Estado (<code>5.101</code>) ou para fora do Estado (<code>6.101</code>).<br>
+        • <strong>Chave Módulo 11:</strong> Validação matemática de 44 dígitos que a Secretaria da Fazenda (SEFAZ) exige antes de autorizar a Nota Fiscal.
+      </p>
+      
+      <div class="example-box">
+        <strong>💡 O que o Agente faz:</strong><br>
+        Ele audita a nota fiscal antes do envio, calculando ICMS, ISS e alíquotas do Simples Nacional, impedindo que sua empresa seja multada ou tenha notas rejeitadas na SEFAZ.
+      </div>
+    </div>
+
+    <!-- AGENTE 4: FINANCEIRO & PIX EMV -->
+    <div class="card-explain">
+      <strong class="tag" style="background: #F1F5F9; color: #0F172A;">💵 Agente 4: Conciliador Financeiro & Pix EMV Banco Central</strong>
+      <p><strong>O que é Pix EMV e CRC16?</strong></p>
+      <p>
+        É o formato oficial de <em>Pix Copia e Cola / QR Code dinâmico</em> regulamentado pelo <strong>Banco Central do Brasil</strong>. O algoritmo <strong>CRC16</strong> calcula uma chave de verificação matemática para garantir que o valor e a conta de destino não foram adulterados por vírus.
+      </p>
+      
+      <div class="example-box">
+        <strong>💡 O que o Agente faz:</strong><br>
+        Gera a cobrança Pix na hora com código copia e cola, envia para o WhatsApp do cliente, dá baixa no contas a receber e projeta o fluxo de caixa para 30 e 60 dias.
+      </div>
+    </div>
+
+    <!-- AGENTE 5: LOGÍSTICA & HAVERSINE -->
+    <div class="card-explain">
+      <strong class="tag" style="background: #E0F2FE; color: #0369A1;">📍 Agente 5: Logística de Campo & Roteirizador Haversine</strong>
+      <p><strong>O que é a Fórmula de Haversine?</strong></p>
+      <p>
+        É uma fórmula trigonométrica que calcula a <strong>distância geodésica real em linha curva (KM)</strong> entre as coordenadas de GPS do vendedor na rua e os endereços dos clientes.
+      </p>
+      
+      <div class="example-box">
+        <strong>💡 O que o Agente faz:</strong><br>
+        O vendedor abre o app e vê uma lista ordenada dos clientes mais próximos dele. Ele clica em um botão e o app já abre o <strong>Waze</strong> ou <strong>Google Maps</strong> com o GPS pronto para dirigir até o cliente.
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTE 3: ASSINATURA HASH SHA-256 (VALIDADE JURÍDICA) -->
+  <section>
+    <h2 class="section-title">3. Assinatura por Hash SHA-256 em 1-Clique (Sem Pagar Nada)</h2>
+    <div class="card-explain">
+      <strong class="tag">Validade Jurídica Plena (MP 2.200-2/2001 e Lei 14.063/2020)</strong>
+      <p>
+        <strong>O que é um Hash SHA-256?</strong><br>
+        É uma "impressão digital matemática" de 64 caracteres gerada a partir do texto exato do contrato. Se alguém tentar mudar <strong>uma única letra</strong> ou valor após a assinatura, o Hash se invalida instantaneamente.
+      </p>
+      
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Evidência Coletada</th>
+            <th>Como Funciona no Multifator CRM</th>
+            <th>Impacto Jurídico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hash SHA-256</strong></td>
+            <td>Criptografa o contrato, medidas e valores</td>
+            <td>Garante que o texto nunca foi alterado</td>
+          </tr>
+          <tr>
+            <td><strong>Carimbo de Tempo UTC-3</strong></td>
+            <td>Grava o segundo exato de Brasília</td>
+            <td>Comprova a data e hora do aceite</td>
+          </tr>
+          <tr>
+            <td><strong>Endereço IP & GPS</strong></td>
+            <td>Registra a rede e local do signatário</td>
+            <td>Comprova autoria perante qualquer juiz</td>
+          </tr>
+          <tr>
+            <td><strong>Custo por Contrato</strong></td>
+            <td><strong>R$ 0,00</strong> (Nativo no sistema)</td>
+            <td>Economiza R$ 3 a R$ 6 por documento (DocuSign/ZapSign)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PARTE 4: CALCULADORA DE ROI -->
+  <section>
+    <h2 class="section-title">4. Calculadora de ROI Interativa (Landing Page)</h2>
+    <div class="card-explain">
+      <strong class="tag">O que é ROI?</strong>
+      <p><em>ROI</em> significa <strong>Retorno sobre o Investimento</strong> (Return on Investment). A calculadora na Landing Page demonstra matematicamente para o cliente quanto ele lucra ao assinar o Multifator CRM:</p>
+      
+      <div class="card-grid" style="margin-top: 10px;">
+        <div style="background: #fff; border: 1px solid var(--border); padding: 1rem; border-radius: 8px;">
+          <strong style="color: #2563EB;">1. Horas de Trabalho Salvas:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Calcula ~2,2 horas economizadas por orçamento (a IA calcula insumos, impostos e digita a proposta em segundos).</p>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--border); padding: 1rem; border-radius: 8px;">
+          <strong style="color: #10B981;">2. Economia Direta em Contratos:</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Elimina o pagamento de plataformas terceiras de assinatura e impressões em papel (~R$ 18 por contrato).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTE 5: FERRAMENTAS DO DIA A DIA -->
+  <section>
+    <h2 class="section-title">5. Outras Ferramentas de Alta Performance do Sistema</h2>
+    
+    <div class="card-explain">
+      <strong class="tag" style="background: #FCE7F3; color: #9D174D;">🎙️ Copiloto Voice-First (Voz Natural)</strong>
+      <p>
+        O vendedor de rua está no carro e não quer digitar em formulários pequenos. Ele aperta o microfone e fala: <em>"Visitei a Padaria Estrela em Campinas, falei com o Marcos, ele quer um mezanino de 8x10m por 25 mil para entrega em 20 dias"</em>. A IA escuta, cria o cliente, cadastra a proposta e calcula o custo de fabricação sozinha!
+      </p>
+    </div>
+
+    <div class="card-explain">
+      <strong class="tag" style="background: #FEF3C7; color: #92400E;">🏆 Arena Modo TV (Gamificação de Vendas)</strong>
+      <p>
+        Um painel em tela cheia feito para ser colocado na televisão da sala de vendas. Ele mostra o ranking dos vendedores em tempo real com pódio (ouro, prata e bronze), termômetro da meta da empresa e feed com os últimos pedidos aprovados.
+      </p>
+    </div>
+
+    <div class="card-explain">
+      <strong class="tag" style="background: #E0E7FF; color: #3730A3;">🛡️ Segurança 2FA TOTP (Google / Microsoft Authenticator)</strong>
+      <p>
+        Segurança em duas etapas no mesmo padrão usado por bancos. O usuário escaneia o QR Code no celular e o login passa a exigir um código numérico temporário de 6 dígitos que muda a cada 30 segundos.
+      </p>
+    </div>
+
+    <div class="card-explain">
+      <strong class="tag" style="background: #DCFCE7; color: #166534;">📱 PWA (Progressive Web App - Android & iOS)</strong>
+      <p>
+        O Multifator CRM pode ser instalado no celular Android ou iPhone como um aplicativo nativo (com ícone próprio na tela inicial e sem a barra de endereços do navegador), funcionando até mesmo offline.
+      </p>
+    </div>
+  </section>
+
+  <!-- RODAPÉ FINAL DO RELATÓRIO -->
+  <footer style="border-top: 2px solid var(--border); padding-top: 1.5rem; margin-top: 3rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
+    <div>
+      <strong>Multifator CRM SaaS</strong> &copy; 2026 — Todos os direitos reservados.
+    </div>
+    <div>
+      Documento Gerado para Gestão e Treinamento Executivo
+    </div>
+  </footer>
+
+</body>
+</html>

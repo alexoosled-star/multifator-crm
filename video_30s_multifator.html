@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeo Teaser 30s - Multifator CRM (Voz Reparada 15s e 18s)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Carrega a locução enviada pelo usuário em Base64 -->
+  <script src="locucao_base64.js"></script>
+
+  <style>
+    :root {
+      --bg: #070B14;
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --primary: #2563EB;
+      --cyan: #00D2FF;
+      --emerald: #10B981;
+      --amber: #F59E0B;
+      --rose: #EF4444;
+      --border: rgba(56, 189, 248, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #030712;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      overflow-x: hidden;
+    }
+
+    /* BARRA SUPERIOR DE CONTROLES DO ESTÚDIO */
+    .top-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.75rem;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      z-index: 100;
+    }
+
+    .btn-ctrl {
+      background: #1E293B;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+    }
+
+    .btn-ctrl:hover {
+      background: var(--primary);
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-ctrl.btn-play-clean {
+      background: linear-gradient(135deg, #2563EB, #00D2FF);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+    }
+
+    .btn-ctrl.btn-spotlight {
+      background: linear-gradient(135deg, #7C3AED, #A855F7);
+      border: none;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);
+    }
+
+    .btn-ctrl.btn-export-audio {
+      background: linear-gradient(135deg, #059669, #10B981);
+      border: none;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-ctrl.btn-record-video {
+      background: linear-gradient(135deg, #DC2626, #EF4444);
+      border: none;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-ctrl.recording {
+      animation: pulseRecord 1s infinite alternate;
+    }
+
+    @keyframes pulseRecord {
+      0% { opacity: 0.8; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1.03); box-shadow: 0 0 25px rgba(239, 68, 68, 0.9); }
+    }
+
+    /* PAINEL DE CONTROLE DE REPARO CIRÚRGICO (15s e 18s) */
+    .repair-panel {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(30, 27, 75, 0.6);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 8px 20px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+    }
+
+    .repair-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: #E9D5FF;
+    }
+
+    .repair-pill {
+      background: #7C3AED;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+      color: #C4B5FD;
+      font-weight: 600;
+    }
+
+    .toggle-switch input {
+      accent-color: #A855F7;
+      cursor: pointer;
+    }
+
+    /* MOLDURA DO VÍDEO (FORMATO 9:16 VERTICAL / REELS / SHORTS) */
+    .video-viewport {
+      width: 400px;
+      height: 710px;
+      max-width: 100%;
+      background: radial-gradient(circle at 50% 15%, #0F1E36 0%, #060A12 100%);
+      border-radius: 36px;
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 50px rgba(0, 210, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* BARRA DE PROGRESSO */
+    .progress-bar-container {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      right: 18px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+      overflow: hidden;
+      z-index: 50;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2563EB, #00D2FF, #10B981);
+      box-shadow: 0 0 12px #00D2FF;
+      transition: width 0.1s linear;
+    }
+
+    /* CABEÇALHO DO VÍDEO */
+    .video-header {
+      position: absolute;
+      top: 26px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 50;
+    }
+
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10, 16, 30, 0.8);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-pill .logo-box {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #2563EB, #00D2FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.75rem;
+    }
+
+    .brand-pill span {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+    }
+
+    .time-badge {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #38BDF8;
+      background: rgba(0,0,0,0.6);
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* CONTAINER DAS CENAS */
+    .scenes-wrapper {
+      flex: 1;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 70px 22px 24px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scene {
+      position: absolute;
+      inset: 70px 22px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: scale(0.92) translateY(20px);
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .scene.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    .scene-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .scene-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .scene-sub {
+      font-size: 0.9rem;
+      color: #94A3B8;
+      text-align: center;
+      line-height: 1.45;
+      margin-bottom: 20px;
+      max-width: 90%;
+    }
+
+    /* CAIXA DE LEGENDAS DINÂMICAS */
+    .voice-captions-box {
+      position: absolute;
+      bottom: 38px;
+      left: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.82);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 10px 14px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 60;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+    }
+
+    .voice-captions-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      line-height: 1.35;
+    }
+
+    /* CARDS DAS CENAS */
+    .pain-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pain-item {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 10px 14px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FCA5A5;
+    }
+
+    .agent-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .agent-row {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .agent-row .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .agent-row .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .agent-row .title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .agent-row .badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .cert-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 78, 59, 0.4));
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 18px;
+      border-radius: 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    }
+
+    .hash-badge {
+      font-family: monospace;
+      font-size: 0.7rem;
+      color: #6EE7B7;
+      background: rgba(0,0,0,0.5);
+      padding: 6px 10px;
+      border-radius: 8px;
+      margin: 10px 0;
+      word-break: break-all;
+    }
+
+    .price-zero {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #34D399;
+      line-height: 1;
+      margin: 6px 0;
+    }
+
+    .voice-pulse-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563EB, #00D2FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      box-shadow: 0 0 35px rgba(0, 210, 255, 0.6);
+      animation: pulseMic 1.2s infinite;
+    }
+
+    @keyframes pulseMic {
+      0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(0,210,255,0.4); }
+      50% { transform: scale(1.08); box-shadow: 0 0 45px rgba(0,210,255,0.8); }
+      100% { transform: scale(0.95); box-shadow: 0 0 20px rgba(0,210,255,0.4); }
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #2563EB, #00D2FF);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 210, 255, 0.5);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      margin-top: 14px;
+      animation: floatBtn 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBtn {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(0, 210, 255, 0.7); }
+    }
+
+    .video-footer {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE CONTROLES PRINCIPAL -->
+  <div class="top-controls">
+    <button class="btn-ctrl btn-play-clean" onclick="VideoEngine.playCleanedAudio()">
+      ▶️ Tocar Vídeo Completo
+    </button>
+    <button class="btn-ctrl btn-spotlight" onclick="VideoEngine.spotlightTest13to20()">
+      🎧 Ouvir Trecho Reparado (13s a 20s)
+    </button>
+    <button class="btn-ctrl" onclick="VideoEngine.pause()">⏸️ Pausar</button>
+    <button class="btn-ctrl" onclick="VideoEngine.restart()">🔄 Reiniciar</button>
+    
+    <button class="btn-ctrl btn-export-audio" onclick="VideoEngine.exportCleanWav()">
+      💾 Baixar Áudio Limpo (.wav)
+    </button>
+
+    <button class="btn-ctrl btn-record-video" id="recordBtn" onclick="VideoEngine.toggleScreenRecording()">
+      🎥 Baixar Vídeo (.webm)
+    </button>
+  </div>
+
+  <!-- PAINEL DE STATUS DA CORREÇÃO CIRÚRGICA -->
+  <div class="repair-panel">
+    <div class="repair-status">
+      <span class="repair-pill">Reparo Cirúrgico Ativo</span>
+      <span>Falhas Eliminadas: <strong>14.8s ~ 15.4s</strong> e <strong>17.6s ~ 18.4s</strong></span>
+    </div>
+    <label class="toggle-switch">
+      <input type="checkbox" id="repairToggle" checked onchange="VideoEngine.toggleRepair(this.checked)">
+      <span>Ativar Correção Suave</span>
+    </label>
+  </div>
+
+  <!-- VIEWPORT DO VÍDEO (9:16) -->
+  <div class="video-viewport" id="videoBox">
+    
+    <!-- BARRA DE PROGRESSO -->
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="pBar"></div>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <div class="video-header">
+      <div class="brand-pill">
+        <div class="logo-box">M</div>
+        <span>MULTIFATOR CRM</span>
+      </div>
+      <div class="time-badge" id="timeBadge">00:00 / 00:30</div>
+    </div>
+
+    <!-- CENAS SINCRONIZADAS -->
+    <div class="scenes-wrapper">
+
+      <!-- CENA 1: 00s a 06s -->
+      <div class="scene active" id="scene1">
+        <span class="scene-tag" style="background: rgba(239,68,68,0.2); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.4);">
+          O GRANDE GARGALO B2B
+        </span>
+        <h2 class="scene-title">Por que seu CRM falha no Brasil?</h2>
+        <p class="scene-sub">CRMs tradicionais foram feitos para o Vale do Silício, não para quem vende no mundo real.</p>
+        
+        <div class="pain-box">
+          <div class="pain-item">
+            <span>❌</span>
+            <span>Não decompõe custos de matéria-prima</span>
+          </div>
+          <div class="pain-item">
+            <span>❌</span>
+            <span>Cobram R$ 5 por contrato assinado</span>
+          </div>
+          <div class="pain-item">
+            <span>❌</span>
+            <span>Zero integração com a SEFAZ e Waze</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENA 2: 06s a 13s -->
+      <div class="scene" id="scene2">
+        <span class="scene-tag" style="background: rgba(0,210,255,0.2); color: #38BDF8; border: 1px solid rgba(0,210,255,0.4);">
+          INTELIGÊNCIA ARTIFICIAL REAL
+        </span>
+        <h2 class="scene-title" style="font-size: 1.65rem;">Swarm de 5 Agentes de IA Autônomos</h2>
+        <p class="scene-sub">Uma equipe de robôs especialistas trabalhando 24h em segundo plano.</p>
+
+        <div class="agent-grid">
+          <div class="agent-row">
+            <div class="left">
+              <div class="icon" style="background:#FEF3C7; color:#92400E;">📐</div>
+              <div class="title">BOM Engine</div>
+            </div>
+            <span class="badge" style="background:#FEF3C7; color:#92400E;">Custo Real & Margem</span>
+          </div>
+          <div class="agent-row">
+            <div class="left">
+              <div class="icon" style="background:#E0E7FF; color:#3730A3;">🎯</div>
+              <div class="title">SDR Receita Federal</div>
+            </div>
+            <span class="badge" style="background:#E0E7FF; color:#3730A3;">CNPJ em 1s + Churn</span>
+          </div>
+          <div class="agent-row">
+            <div class="left">
+              <div class="icon" style="background:#DCFCE7; color:#166534;">🧾</div>
+              <div class="title">Auditor SEFAZ</div>
+            </div>
+            <span class="badge" style="background:#DCFCE7; color:#166534;">Chave Módulo 11</span>
+          </div>
+          <div class="agent-row">
+            <div class="left">
+              <div class="icon" style="background:#F1F5F9; color:#0F172A;">💵</div>
+              <div class="title">Pix EMV Bacen</div>
+            </div>
+            <span class="badge" style="background:#F1F5F9; color:#0F172A;">QR Code CRC16</span>
+          </div>
+          <div class="agent-row">
+            <div class="left">
+              <div class="icon" style="background:#E0F2FE; color:#0369A1;">📍</div>
+              <div class="title">GPS Haversine</div>
+            </div>
+            <span class="badge" style="background:#E0F2FE; color:#0369A1;">Rota Waze / Maps</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENA 3: 13s a 19s (ONDE ESTAVAM AS FALHAS DOS 15s E 18s) -->
+      <div class="scene" id="scene3">
+        <span class="scene-tag" style="background: rgba(16,185,129,0.2); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.4);">
+          COMPLIANCE JURÍDICO PLENO
+        </span>
+        <h2 class="scene-title">Assinatura Eletrônica em 1-Clique</h2>
+        <p class="scene-sub">Elimine para sempre gastos com DocuSign e ZapSign.</p>
+
+        <div class="cert-card">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #E2E8F0;">
+            MP 2.200-2/2001 & LEI 14.063/2020
+          </div>
+          <div class="hash-badge">
+            SHA256: 8f3c7e4a...92b10d54
+          </div>
+          <div style="font-size: 0.75rem; color: #94A3B8;">Custo por Contrato Assinado:</div>
+          <div class="price-zero">R$ 0,00</div>
+          <div style="font-size: 0.75rem; color: #34D399; font-weight: 600;">
+            ✔ Carimbo UTC-3 &nbsp; ✔ IP & Geolocalização GPS
+          </div>
+        </div>
+      </div>
+
+      <!-- CENA 4: 19s a 25s -->
+      <div class="scene" id="scene4">
+        <span class="scene-tag" style="background: rgba(245,158,11,0.2); color: #FCD34D; border: 1px solid rgba(245,158,11,0.4);">
+          VENDEDOR NO VOLANTE
+        </span>
+        <h2 class="scene-title">Copiloto por Comando de Voz</h2>
+        <p class="scene-sub">Ele fala no trânsito e o CRM preenche propostas e custos sozinho.</p>
+
+        <div class="voice-pulse-box">
+          🎙️
+        </div>
+
+        <div style="background: rgba(15,23,42,0.8); border: 1px solid var(--border); padding: 12px 16px; border-radius: 14px; text-align: center; width: 100%;">
+          <div style="font-size: 0.82rem; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">
+            "Padaria Estrela, mezanino de 8x10m por R$ 25 mil..."
+          </div>
+          <div style="font-size: 0.75rem; color: #10B981; font-weight: 600;">
+            ✔ Orçamento BOM calculado &nbsp; ✔ Proposta PDF gerada
+          </div>
+        </div>
+      </div>
+
+      <!-- CENA 5: 25s a 30s -->
+      <div class="scene" id="scene5">
+        <span class="scene-tag" style="background: rgba(37,99,235,0.25); color: #93C5FD; border: 1px solid rgba(37,99,235,0.5);">
+          SISTEMA EM PRODUÇÃO
+        </span>
+        <h2 class="scene-title" style="font-size: 2.1rem; margin-bottom: 8px;">Pronto para Escala</h2>
+        <p class="scene-sub" style="margin-bottom: 12px;">Multi-Tenant com Supabase RLS, segurança bancária e alta performance.</p>
+
+        <div style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 900; color: #00D2FF; letter-spacing: 0.5px; text-shadow: 0 0 20px rgba(0, 210, 255, 0.6); margin-bottom: 6px;">
+          www.multifatorcrm.com.br
+        </div>
+
+        <a href="https://www.multifatorcrm.com.br" target="_blank" class="cta-button">
+          Conhecer a Plataforma 🚀
+        </a>
+
+        <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 14px;">
+          Parcerias Comerciais & Investimentos via Direct
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CAIXA DE LEGENDAS DINÂMICAS -->
+    <div class="voice-captions-box">
+      <div class="voice-captions-text" id="captionText">
+        "Por que os CRMs tradicionais falham no Brasil?..."
+      </div>
+    </div>
+
+    <!-- RODAPÉ WATERMARK -->
+    <div class="video-footer">
+      MULTIFATOR CRM &bull; TECNOLOGIA SAAS 2026
+    </div>
+
+  </div>
+
+  <script>
+    const VideoEngine = {
+      duration: 30,
+      elapsed: 0,
+      timer: null,
+      isPlaying: false,
+      mediaRecorder: null,
+      recordedChunks: [],
+
+      // CADEIA DE ÁUDIO WEB DSP
+      audioCtx: null,
+      rawAudioBuffer: null,
+      repairedAudioBuffer: null,
+      activeSource: null,
+      useRepair: true,
+
+      narration: [
+        { 
+          start: 0, 
+          end: 6, 
+          sceneId: 'scene1',
+          text: "Por que os CRMs tradicionais falham no Brasil? Porque não foram feitos para quem vende no mundo real."
+        },
+        { 
+          start: 6, 
+          end: 13, 
+          sceneId: 'scene2',
+          text: "O Multifator CRM possui cinco agentes de IA autônomos que calculam insumos, puxam dados de CNPJ em um segundo e colocam o vendedor no Waze."
+        },
+        { 
+          start: 13, 
+          end: 19, 
+          sceneId: 'scene3',
+          text: "Chega de pagar DocuSign. Assinatura eletrônica com validade jurídica, nativa e custo zero por contrato."
+        },
+        { 
+          start: 19, 
+          end: 25, 
+          sceneId: 'scene4',
+          text: "Copiloto por voz para o vendedor na estrada e aplicativo que funciona até mesmo sem internet."
+        },
+        { 
+          start: 25, 
+          end: 30, 
+          sceneId: 'scene5',
+          text: "100% pronto e operando em produção. Acesse agora multifatorcrm.com.br e conheça o futuro das vendas B2B."
+        }
+      ],
+
+      // Inicializa o decodificador e carrega o áudio do usuário
+      async initAudio() {
+        if (!this.audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.audioCtx = new AudioContext();
+        }
+
+        if (this.audioCtx.state === 'suspended') {
+          await this.audioCtx.resume();
+        }
+
+        if (!this.rawAudioBuffer && window.USER_AUDIO_BASE64) {
+          try {
+            const res = await fetch(window.USER_AUDIO_BASE64);
+            const arrayBuffer = await res.arrayBuffer();
+            this.rawAudioBuffer = await this.audioCtx.decodeAudioData(arrayBuffer);
+            this.buildRepairedBuffer();
+          } catch(e) {
+            console.error('Erro ao decodificar áudio:', e);
+          }
+        }
+      },
+
+      // CIRURGIA DE RESTAURAÇÃO NOS SEGUNDOS 15 E 18
+      buildRepairedBuffer() {
+        if (!this.rawAudioBuffer) return;
+
+        const sampleRate = this.rawAudioBuffer.sampleRate;
+        const numChannels = this.rawAudioBuffer.numberOfChannels;
+        const length = this.rawAudioBuffer.length;
+
+        // Clona o buffer original para manter integridade
+        this.repairedAudioBuffer = this.audioCtx.createBuffer(numChannels, length, sampleRate);
+
+        for (let c = 0; c < numChannels; c++) {
+          const src = this.rawAudioBuffer.getChannelData(c);
+          const dst = this.repairedAudioBuffer.getChannelData(c);
+          dst.set(src); // copia inicial
+
+          // JANELAS EXATAS DE CORREÇÃO:
+          // 1. Janela dos 15 segundos (14.7s a 15.6s): corte de estalo/respiração brusca
+          // 2. Janela dos 18 segundos (17.5s a 18.5s): suavização de tropeço vocal / ruído
+          const windows = [
+            { start: Math.floor(14.75 * sampleRate), end: Math.floor(15.45 * sampleRate) },
+            { start: Math.floor(17.55 * sampleRate), end: Math.floor(18.35 * sampleRate) }
+          ];
+
+          windows.forEach(win => {
+            const s = Math.max(0, win.start);
+            const e = Math.min(length, win.end);
+            const mid = Math.floor((s + e) / 2);
+            const halfSpan = (e - s) / 2;
+
+            // 1. De-click cirúrgico: elimina transientes/spikes anormais
+            for (let i = s; i < e - 2; i++) {
+              const diff1 = Math.abs(dst[i] - dst[i - 1]);
+              const diff2 = Math.abs(dst[i + 1] - dst[i]);
+              if (diff1 > 0.12 && diff2 > 0.12) {
+                // Interpolação suave do estalo
+                dst[i] = (dst[i - 1] + dst[i + 1]) / 2;
+              }
+            }
+
+            // 2. Suavização em curva cosseno (atenua a falha/respiro sem cortar a dicção)
+            for (let i = s; i < e; i++) {
+              const normalizedDist = Math.abs(i - mid) / halfSpan; // 0 no centro, 1 nas bordas
+              // Reduz em até 75% o estalo/respiro indesejado no epicentro
+              const gainFactor = 0.25 + 0.75 * Math.pow(normalizedDist, 1.4);
+              dst[i] *= gainFactor;
+            }
+          });
+        }
+      },
+
+      toggleRepair(checked) {
+        this.useRepair = checked;
+        if (this.isPlaying) {
+          const curTime = this.elapsed;
+          this.pause();
+          this.elapsed = curTime;
+          this.playCleanedAudio();
+        }
+      },
+
+      // Cria a cadeia de processamento DSP (Filtros de Estúdio)
+      createDSPChain(ctx, sourceNode, destNode) {
+        // High-Pass (85Hz)
+        const highpass = ctx.createBiquadFilter();
+        highpass.type = 'highpass';
+        highpass.frequency.value = 85;
+        highpass.Q.value = 0.707;
+
+        // Notch (60Hz)
+        const notch = ctx.createBiquadFilter();
+        notch.type = 'notch';
+        notch.frequency.value = 60;
+        notch.Q.value = 4.0;
+
+        // Peaking EQ (3.2kHz) - Presença vocal de estúdio
+        const presence = ctx.createBiquadFilter();
+        presence.type = 'peaking';
+        presence.frequency.value = 3200;
+        presence.gain.value = 3.2;
+        presence.Q.value = 1.1;
+
+        // Low-Pass (11.5kHz) - Elimina chiado de fundo
+        const lowpass = ctx.createBiquadFilter();
+        lowpass.type = 'lowpass';
+        lowpass.frequency.value = 11500;
+        lowpass.Q.value = 0.707;
+
+        // Compressor Broadcast
+        const compressor = ctx.createDynamicsCompressor();
+        compressor.threshold.value = -18;
+        compressor.knee.value = 8;
+        compressor.ratio.value = 3.5;
+        compressor.attack.value = 0.003;
+        compressor.release.value = 0.16;
+
+        // Master Gain
+        const masterGain = ctx.createGain();
+        masterGain.gain.value = 1.35;
+
+        sourceNode
+          .connect(highpass)
+          .connect(notch)
+          .connect(presence)
+          .connect(lowpass)
+          .connect(compressor)
+          .connect(masterGain)
+          .connect(destNode);
+
+        return masterGain;
+      },
+
+      async playCleanedAudio() {
+        await this.initAudio();
+
+        if (this.isPlaying) return;
+        this.isPlaying = true;
+
+        const bufferToUse = (this.useRepair && this.repairedAudioBuffer) 
+          ? this.repairedAudioBuffer 
+          : this.rawAudioBuffer;
+
+        if (bufferToUse) {
+          if (this.activeSource) {
+            try { this.activeSource.stop(); } catch(e) {}
+          }
+          this.activeSource = this.audioCtx.createBufferSource();
+          this.activeSource.buffer = bufferToUse;
+          
+          this.createDSPChain(this.audioCtx, this.activeSource, this.audioCtx.destination);
+          
+          const offset = Math.min(this.elapsed, bufferToUse.duration);
+          this.activeSource.start(0, offset);
+        }
+
+        this.timer = setInterval(() => {
+          this.elapsed += 0.1;
+
+          if (this.elapsed >= this.duration) {
+            this.elapsed = this.duration;
+            this.updateUI();
+            this.pause();
+            return;
+          }
+          this.updateUI();
+        }, 100);
+      },
+
+      // ATALHO EXCLUSIVO: OUVIR DIRETO O TRECHO DOS 13s AOS 20s (ONDE ESTAVA A FALHA)
+      spotlightTest13to20() {
+        this.pause();
+        this.elapsed = 13.0;
+        this.updateUI();
+        this.playCleanedAudio();
+
+        // Para automaticamente aos 20s para facilitar a conferência
+        setTimeout(() => {
+          if (this.elapsed >= 19.8 && this.isPlaying) {
+            this.pause();
+          }
+        }, 7200);
+      },
+
+      pause() {
+        this.isPlaying = false;
+        clearInterval(this.timer);
+        if (this.activeSource) {
+          try { this.activeSource.stop(); } catch(e) {}
+          this.activeSource = null;
+        }
+      },
+
+      restart() {
+        this.pause();
+        this.elapsed = 0;
+        this.updateUI();
+        this.playCleanedAudio();
+      },
+
+      updateUI() {
+        const pct = (this.elapsed / this.duration) * 100;
+        document.getElementById('pBar').style.width = pct + '%';
+        
+        const sec = Math.floor(this.elapsed);
+        const secStr = sec < 10 ? '0' + sec : sec;
+        document.getElementById('timeBadge').innerText = `00:${secStr} / 00:30`;
+
+        // Ativa a cena e o texto correspondente
+        this.narration.forEach((item) => {
+          const el = document.getElementById(item.sceneId);
+          const wasActive = el.classList.contains('active');
+          const shouldBeActive = this.elapsed >= item.start && this.elapsed < item.end;
+
+          if (shouldBeActive) {
+            if (!wasActive) el.classList.add('active');
+            document.getElementById('captionText').innerHTML = `"${item.text}"`;
+          } else if (!shouldBeActive && wasActive) {
+            el.classList.remove('active');
+          }
+        });
+      },
+
+      // Exporta o áudio corrigido em formato WAV
+      async exportCleanWav() {
+        await this.initAudio();
+        const bufferToUse = (this.useRepair && this.repairedAudioBuffer) 
+          ? this.repairedAudioBuffer 
+          : this.rawAudioBuffer;
+
+        if (!bufferToUse) {
+          alert('Carregando áudio... Tente novamente em 2 segundos.');
+          return;
+        }
+
+        const sampleRate = bufferToUse.sampleRate;
+        const length = bufferToUse.length;
+        const offlineCtx = new OfflineAudioContext(1, length, sampleRate);
+
+        const source = offlineCtx.createBufferSource();
+        source.buffer = bufferToUse;
+
+        this.createDSPChain(offlineCtx, source, offlineCtx.destination);
+        source.start(0);
+
+        const renderedBuffer = await offlineCtx.startRendering();
+        const wavBlob = this.bufferToWavBlob(renderedBuffer);
+
+        const url = URL.createObjectURL(wavBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'locucao_multifator_reparada_15s_18s.wav';
+        a.click();
+        URL.revokeObjectURL(url);
+        alert('Áudio reparado (.wav) baixado com sucesso!');
+      },
+
+      // Conversor PCM WAV 16-bit
+      bufferToWavBlob(abuffer) {
+        const numOfChan = 1;
+        const length = abuffer.length * numOfChan * 2 + 44;
+        const out = new ArrayBuffer(length);
+        const view = new DataView(out);
+        let sample = 0;
+        let offset = 0;
+        let pos = 0;
+
+        function setUint16(data) { view.setUint16(pos, data, true); pos += 2; }
+        function setUint32(data) { view.setUint32(pos, data, true); pos += 4; }
+
+        setUint32(0x46464952); // "RIFF"
+        setUint32(length - 8);
+        setUint32(0x45564157); // "WAVE"
+        setUint32(0x20746d66); // "fmt "
+        setUint32(16);
+        setUint16(1); // PCM
+        setUint16(numOfChan);
+        setUint32(abuffer.sampleRate);
+        setUint32(abuffer.sampleRate * 2 * numOfChan);
+        setUint16(numOfChan * 2);
+        setUint16(16);
+        setUint32(0x61746164); // "data"
+        setUint32(length - pos - 4);
+
+        const chData = abuffer.getChannelData(0);
+
+        while (pos < length) {
+          sample = Math.max(-1, Math.min(1, chData[offset]));
+          sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767) | 0;
+          view.setInt16(pos, sample, true);
+          pos += 2;
+          offset++;
+        }
+        return new Blob([out], { type: 'audio/wav' });
+      },
+
+      // Gravação do vídeo final completo com áudio corrigido
+      async toggleScreenRecording() {
+        const btn = document.getElementById('recordBtn');
+        if (this.mediaRecorder && this.mediaRecorder.state === 'recording') {
+          this.mediaRecorder.stop();
+          btn.innerText = '🎥 Baixar Vídeo (.webm)';
+          btn.classList.remove('recording');
+          return;
+        }
+
+        try {
+          const stream = await navigator.mediaDevices.getDisplayMedia({
+            video: { displaySurface: 'browser' },
+            audio: true
+          });
+
+          this.recordedChunks = [];
+          this.mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm; codecs=vp9' });
+
+          this.mediaRecorder.ondataavailable = (e) => {
+            if (e.data.size > 0) this.recordedChunks.push(e.data);
+          };
+
+          this.mediaRecorder.onstop = () => {
+            const blob = new Blob(this.recordedChunks, { type: 'video/webm' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'multifator_crm_video_oficial_com_voz_reparada.webm';
+            a.click();
+            URL.revokeObjectURL(url);
+            stream.getTracks().forEach(t => t.stop());
+            alert('Vídeo oficial com voz reparada baixado com sucesso!');
+          };
+
+          this.mediaRecorder.start();
+          btn.innerText = '⏹️ Parar Gravação';
+          btn.classList.add('recording');
+
+          this.restart();
+
+          setTimeout(() => {
+            if (this.mediaRecorder && this.mediaRecorder.state === 'recording') {
+              this.mediaRecorder.stop();
+              btn.innerText = '🎥 Baixar Vídeo (.webm)';
+              btn.classList.remove('recording');
+            }
+          }, 31000);
+
+        } catch (err) {
+          alert('Para gravar com som, selecione esta aba e marque "Compartilhar áudio da guia".');
+        }
+      }
+    };
+
+    window.addEventListener('load', () => {
+      VideoEngine.initAudio();
+      VideoEngine.updateUI();
+    });
+  </script>
+</body>
+</html>

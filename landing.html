@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multifator CRM | Software de Vendas, Funil de Clientes e Gestão Comercial</title>
+  <meta name="description" content="O Multifator CRM é o software de vendas definitivo para acelerar seu funil de clientes e transformar a gestão comercial da sua empresa com inteligência artificial, automação e orçamentos de alta precisão.">
+  <meta name="keywords" content="Multifator CRM, Software de Vendas, Funil de Clientes, Gestão Comercial, Pipeline de Vendas, Automação Comercial, CRM com IA, CRM WhatsApp">
+  <meta name="author" content="Multifator CRM Tecnologia">
+  <meta name="robots" content="index, follow">
+  
+  <!-- OpenGraph / Redes Sociais & Google -->
+  <meta property="og:title" content="Multifator CRM | Software de Vendas, Funil de Clientes e Gestão Comercial">
+  <meta property="og:description" content="Acelere o fechamento de propostas, controle seu funil de clientes e eleve a gestão comercial com o Multifator CRM.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.multifatorcrm.com.br">
+  
+  <!-- Schema.org JSON-LD para indexação semântica no Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Multifator CRM",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS, Windows",
+    "description": "Software de Vendas e Gestão Comercial com controle avançado de Funil de Clientes, IA Autônoma e Engenharia de Orçamentos.",
+    "offers": {
+      "@type": "Offer",
+      "price": "197.00",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <!-- PWA & Mobile Meta Tags (Android & iOS) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080C15">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Multifator CRM">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%231E40AF'/%3E%3Cstop offset='50%25' stop-color='%232563EB'/%3E%3Cstop offset='100%25' stop-color='%2300D2FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='128' fill='url(%23grad)'/%3E%3Cpath d='M140 372V140h48l72 136 72-136h48v232h-44V224l-64 120h-24l-64-120v148h-44z' fill='%23ffffff'/%3E%3C/svg%3E">
+  
+  <!-- Estilos da Landing Page & Mobile -->
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/responsive-mobile.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg stroke-linejoin='round' stroke-width='4'%3E%3Cpolygon points='2,118 2,2 22,2 22,118' fill='%232F6FDB' stroke='%232F6FDB'/%3E%3Cpolygon points='32,2 32,40 57,84 57,46' fill='%233B82F6' stroke='%233B82F6'/%3E%3Cpolygon points='88,2 88,40 63,84 63,46' fill='%237FB0F5' stroke='%237FB0F5'/%3E%3Cpolygon points='98,118 98,2 118,2 118,118' fill='%23BFDBFE' stroke='%23BFDBFE'/%3E%3C/g%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ========================================================================
+       BARRA DE NAVEGAÇÃO PRINCIPAL (NAVBAR)
+       ======================================================================== -->
+  <header id="landing-navbar" class="landing-nav">
+    <a href="#" class="brand-logo" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;">
+      <svg viewBox="0 0 120 120" width="38" height="38" style="flex-shrink:0;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multifator">
+        <g stroke-linejoin="round" stroke-width="4">
+      <polygon points="2,118 2,2 22,2 22,118" fill="#2F6FDB" stroke="#2F6FDB"/>
+      <polygon points="32,2 32,40 57,84 57,46" fill="#3B82F6" stroke="#3B82F6"/>
+      <polygon points="88,2 88,40 63,84 63,46" fill="#7FB0F5" stroke="#7FB0F5"/>
+      <polygon points="98,118 98,2 118,2 118,118" fill="#BFDBFE" stroke="#BFDBFE"/>
+    </g>
+      </svg>
+      <div style="display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:22px;line-height:1.15;letter-spacing:0.4px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+          <span style="font-weight:800;color:#ffffff;">multi</span><span style="font-weight:300;color:#7FB0F5;">fator</span>
+        </div>
+        <div style="font-size:7.5px;font-weight:600;color:#ffffff !important;opacity:0.92;letter-spacing:1.6px;text-transform:uppercase;margin-top:3px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">UMA SOLUÇÃO, INFINITAS POSSIBILIDADES.</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#fatores">Recursos & Funil</a></li>
+      <li><a href="#roi">Calculadora de ROI</a></li>
+      <li><a href="#precos">Planos & Preços</a></li>
+      <li><a href="#faq">Perguntas Frequentes</a></li>
+    </ul>
+
+    <div class="nav-cta-group">
+      <button class="btn-land btn-land-secondary" onclick="AuthController.openModal('modal-login')">
+        Entrar
+      </button>
+      <button class="btn-land btn-land-primary" onclick="AuthController.openModal('modal-register')">
+        Testar Grátis por 14 Dias
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION: MULTIFATOR CRM (SOFTWARE DE VENDAS & FUNIL DE CLIENTES)
+       ======================================================================== -->
+  <section class="hero-section">
+    <div class="hero-badge">
+      <span>PLATAFORMA INTEGRADA DE GESTÃO COMERCIAL & VENDAS</span>
+    </div>
+
+    <h1 class="hero-title">
+      O Software de Vendas que Transforma seu<br>
+      <span class="gradient">Funil de Clientes</span> em Resultados Previsíveis.
+    </h1>
+
+    <p class="hero-subtitle">
+      O <strong>Multifator CRM</strong> centraliza a operação comercial da sua empresa: controle rigoroso do <strong>funil de clientes</strong>, automação de <strong>gestão comercial</strong>, engenharia de orçamentos (BOM), roteirização de equipes externas e assinaturas eletrônicas com validade jurídica.
+    </p>
+
+    <div class="hero-ctas">
+      <button class="btn-land btn-land-primary" style="font-size: 0.95rem; padding: 0.85rem 1.75rem;" onclick="AuthController.openModal('modal-register')">
+        Iniciar Teste de 14 Dias
+      </button>
+      <a href="index.html" class="btn-land btn-land-secondary" style="font-size: 0.95rem; padding: 0.85rem 1.75rem;">
+        Acessar Demonstração da Plataforma
+      </a>
+    </div>
+
+    <!-- MOCKUP PREVIEW DA PLATAFORMA -->
+    <div class="hero-mockup-wrapper">
+      <div class="hero-mockup-inner">
+        <div class="mockup-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="mockup-url">app.multifatorcrm.com.br/gestao-comercial</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <span style="background: rgba(37, 99, 235, 0.15); color: #93C5FD; border: 1px solid rgba(37, 99, 235, 0.3); padding: 3px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600;">
+              Pipeline Ativo
+            </span>
+            <span style="background: rgba(16, 185, 129, 0.15); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.3); padding: 3px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600;">
+              SEFAZ Integrado
+            </span>
+          </div>
+        </div>
+
+        <div class="mockup-stats-grid">
+          <div class="mockup-stat-card">
+            <span class="mockup-stat-title">Funil de Clientes em Negociação</span>
+            <div class="mockup-stat-val" style="color: #60A5FA;">R$ 148.500,00</div>
+          </div>
+          <div class="mockup-stat-card">
+            <span class="mockup-stat-title">Faturamento Emitido (NF-e)</span>
+            <div class="mockup-stat-val" style="color: #34D399;">R$ 68.450,00</div>
+          </div>
+          <div class="mockup-stat-card">
+            <span class="mockup-stat-title">Contratos Digitais (Hash SHA-256)</span>
+            <div class="mockup-stat-val" style="color: #F472B6;">100% Assinados</div>
+          </div>
+          <div class="mockup-stat-card">
+            <span class="mockup-stat-title">Equipe Comercial em Campo</span>
+            <div class="mockup-stat-val" style="color: #FBBF24;">4 Consultores</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.8rem; color: var(--text-subtle); margin: 0; text-align: left;">
+          Painel comercial responsivo com auditoria de orçamentos, cálculo de margem líquida e gestão de comissões.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       STRIP DE MÉTRICAS DE IMPACTO
+       ======================================================================== -->
+  <div class="metrics-strip">
+    <div class="metric-item">
+      <div class="metric-number">4x</div>
+      <div class="metric-label">Mais agilidade na elaboração de propostas técnicas</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-number">R$ 0,00</div>
+      <div class="metric-label">Custo adicional em assinaturas eletrônicas com validade jurídica</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-number">100%</div>
+      <div class="metric-label">Conformidade fiscal na emissão e auditoria de tributos</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-number">99.9%</div>
+      <div class="metric-label">Disponibilidade e segurança em nuvem de nível corporativo</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       RECURSOS PRINCIPAIS / FILOSOFIA MULTIFATOR CRM
+       ======================================================================== -->
+  <section id="fatores" class="features-section">
+    <div class="section-header">
+      <span class="section-tag">ARQUITETURA DE CRESCIMENTO</span>
+      <h2 class="section-title">Pilares para Escalar seu Funil de Clientes e a Gestão Comercial</h2>
+      <p style="color: var(--text-muted);">
+        O <strong>Multifator CRM</strong> combina controle operacional, inteligência de dados e automação para eliminar gargalos comerciais.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 class="feature-title">1. Gestão de Pipeline & Funil de Clientes</h3>
+        <p class="feature-desc">
+          Visão panorâmica de todas as oportunidades de negócio, alertas de inatividade de leads e previsibilidade de fechamento baseada em dados reais.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 class="feature-title">2. Engenharia de Orçamentos (BOM)</h3>
+        <p class="feature-desc">
+          Composição automática de custos diretos, insumos, horas de engenharia e frete com cálculo de margem líquida em orçamentos sob medida.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="feature-title">3. Assinatura Digital Hash SHA-256</h3>
+        <p class="feature-desc">
+          Emissão e assinatura de contratos comerciais com carimbo de tempo, IP e validade jurídica plena (MP nº 2.200-2/2001) sem custos extras.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        </div>
+        <h3 class="feature-title">4. Roteirização de Campo & Waze</h3>
+        <p class="feature-desc">
+          Otimização de trajetos para vendedores externos, navegação via Google Maps e check-in georreferenciado diretamente na ficha do cliente.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="feature-title">5. Atendimento & WhatsApp Hub</h3>
+        <p class="feature-desc">
+          Envio direto de propostas comerciais no WhatsApp, transcrição de áudios para orçamentos e recebimento instantâneo via Pix EMV.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="feature-title">6. Gestão de Metas & Modo TV</h3>
+        <p class="feature-desc">
+          Painel de desempenho para TVs corporativas, acompanhamento do progresso das metas mensais e apuração transparente de comissões.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CALCULADORA DE ROI INTERATIVA
+       ======================================================================== -->
+  <section id="roi" class="roi-section">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <span class="section-tag">SIMULAÇÃO DE RETORNO</span>
+      <h2 class="section-title">Calculadora de Retorno sobre Investimento (ROI)</h2>
+      <p style="color: var(--text-muted);">Estime o impacto financeiro direto da automação comercial e do controle do funil na sua operação.</p>
+    </div>
+
+    <div class="roi-grid">
+      <div>
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Tamanho da Equipe Comercial:</span>
+            <strong id="roi-team-val-label" style="color: #60A5FA;">5 consultores</strong>
+          </div>
+          <input type="range" id="roi-team-size" min="1" max="50" value="5" oninput="LandingInteractions.updateROICalculator()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Propostas Comerciais Emitidas por Mês:</span>
+            <strong id="roi-quotes-val-label" style="color: #60A5FA;">40 propostas/mês</strong>
+          </div>
+          <input type="range" id="roi-quotes-count" min="5" max="300" value="40" oninput="LandingInteractions.updateROICalculator()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label">
+            <span>Ticket Médio por Venda / Projeto:</span>
+            <strong id="roi-ticket-val-label" style="color: #34D399;">R$ 25.000,00</strong>
+          </div>
+          <input type="range" id="roi-ticket-val" min="3000" max="200000" step="1000" value="25000" oninput="LandingInteractions.updateROICalculator()">
+        </div>
+      </div>
+
+      <div class="roi-result-card">
+        <span style="font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">Geração de Receita Adicional Estimada / Mês</span>
+        <div class="roi-big-value" id="roi-extra-revenue">R$ 120.000</div>
+        
+        <div style="display: flex; justify-content: space-around; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 1rem; text-align: center;">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Horas Salvas por Mês</span><br>
+            <strong id="roi-hours-saved" style="color: #60A5FA; font-size: 0.95rem;">88 horas</strong>
+          </div>
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Economia em Softwares</span><br>
+            <strong id="roi-direct-savings" style="color: #FBBF24; font-size: 0.95rem;">R$ 720,00</strong>
+          </div>
+        </div>
+
+        <button class="btn-land btn-land-primary" style="width: 100%; margin-top: 1.5rem; justify-content: center;" onclick="AuthController.openModal('modal-register')">
+          Obter Este Retorno na Minha Empresa
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TABELA DE PREÇOS & PLANOS
+       ======================================================================== -->
+  <section id="precos" class="pricing-section">
+    <div class="section-header">
+      <span class="section-tag">INVESTIMENTO TRANSPARENTE</span>
+      <h2 class="section-title">Planos Dimensionados para sua Estrutura</h2>
+      <p style="color: var(--text-muted);">Comece com 14 dias de teste gratuito, sem necessidade de cartão de crédito prévio.</p>
+    </div>
+
+    <div class="pricing-toggle-wrapper">
+      <button id="btn-billing-monthly" class="btn-land btn-land-primary" onclick="LandingInteractions.togglePricingBilling('monthly')">
+        Faturamento Mensal
+      </button>
+      <button id="btn-billing-annual" class="btn-land btn-land-secondary" onclick="LandingInteractions.togglePricingBilling('annual')">
+        Faturamento Anual <span style="background: rgba(16, 185, 129, 0.2); color: #34D399; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; margin-left: 4px; border: 1px solid rgba(16, 185, 129, 0.4);">20% OFF</span>
+      </button>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="price-card">
+        <div class="plan-name">Starter</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Para pequenas empresas comerciais e equipes em estruturação inicial.</p>
+        <div class="plan-price" id="price-starter">R$ 197<span>/mês</span></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Até 3 Usuários Comerciais</li>
+          <li><span class="check">✓</span> Gestão de Funil de Clientes Ilimitada</li>
+          <li><span class="check">✓</span> Módulo de Engenharia de Orçamentos</li>
+          <li><span class="check">✓</span> Assinatura Digital Hash SHA-256 Ilimitada</li>
+          <li><span class="check">✓</span> Roteirizador Waze e Google Maps</li>
+        </ul>
+        <button class="btn-land btn-land-secondary" style="width: 100%; justify-content: center;" onclick="AuthController.openModal('modal-register')">
+          Iniciar Teste Gratuito
+        </button>
+      </div>
+
+      <!-- Pro Scale -->
+      <div class="price-card featured">
+        <div class="plan-badge">Mais Escolhido</div>
+        <div class="plan-name">Pro Scale</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Para empresas, indústrias e equipes com vendas internas e de campo.</p>
+        <div class="plan-price" id="price-pro">R$ 370<span>/mês</span></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Até 10 Usuários Comerciais</li>
+          <li><span class="check">✓</span> 5 Agentes Autônomos de IA Ativos</li>
+          <li><span class="check">✓</span> Consulta Automática CNPJ Receita Federal</li>
+          <li><span class="check">✓</span> Módulo Fiscal e Emissão NF-e (SEFAZ)</li>
+          <li><span class="check">✓</span> Cobrança Instantânea Pix EMV Banco Central</li>
+          <li><span class="check">✓</span> Painel Modo TV de Metas e Comissões</li>
+        </ul>
+        <button class="btn-land btn-land-primary" style="width: 100%; justify-content: center;" onclick="AuthController.openModal('modal-register')">
+          Iniciar Teste Gratuito
+        </button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="price-card">
+        <div class="plan-name">Enterprise Custom</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Para operações corporativas com integrações complexas e SLA dedicado.</p>
+        <div class="plan-price" id="price-enterprise">R$ 740<span>/mês</span></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Usuários Comerciais Ilimitados</li>
+          <li><span class="check">✓</span> Suporte e SLA Dedicado 24/7</li>
+          <li><span class="check">✓</span> Implantação e Treinamento Especializado</li>
+          <li><span class="check">✓</span> Parametrização Tributária Avançada</li>
+          <li><span class="check">✓</span> Acesso à API REST para Integração ERP</li>
+        </ul>
+        <button class="btn-land btn-land-secondary" style="width: 100%; justify-content: center;" onclick="AuthController.openModal('modal-register')">
+          Falar com Especialista
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FAQ SECTION: PERGUNTAS FREQUENTES
+       ======================================================================== -->
+  <section id="faq" class="faq-section">
+    <div class="section-header">
+      <span class="section-tag">DÚVIDAS FREQUENTES</span>
+      <h2 class="section-title">Perguntas Frequentes</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>A assinatura eletrônica por Hash SHA-256 tem validade jurídica no Brasil?</span>
+        <span style="font-weight: 400; color: var(--text-muted); font-size: 1.2rem;">+</span>
+      </div>
+      <div class="faq-answer">
+        Sim. O Artigo 10, § 2º da Medida Provisória nº 2.200-2/2001 e a Lei Federal nº 14.063/2020 reconhecem a plena validade jurídica de assinaturas eletrônicas com registro criptográfico de Hash SHA-256, endereço IP, carimbo de data/hora UTC e dados dos signatários, constituindo Título Executivo Extrajudicial apto para cobrança em juízo.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Como funciona a conciliação financeira e o recebimento por Pix?</span>
+        <span style="font-weight: 400; color: var(--text-muted); font-size: 1.2rem;">+</span>
+      </div>
+      <div class="faq-answer">
+        O sistema gera o padrão oficial BR Code / Pix EMV com cálculo de CRC16 do Banco Central do Brasil. Os valores são creditados diretamente na conta bancária da sua empresa, sem intermediários ou retenções financeiras.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Como funciona a consulta automática de dados cadastrais por CNPJ?</span>
+        <span style="font-weight: 400; color: var(--text-muted); font-size: 1.2rem;">+</span>
+      </div>
+      <div class="faq-answer">
+        Ao inserir os 14 dígitos do CNPJ na prospecção ou cadastro, a plataforma consulta a base oficial da Receita Federal em tempo real, preenchendo Razão Social, CNAE, endereço completo e quadro societário de forma automática.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>A plataforma pode ser utilizada por equipes comerciais em campo via celular?</span>
+        <span style="font-weight: 400; color: var(--text-muted); font-size: 1.2rem;">+</span>
+      </div>
+      <div class="faq-answer">
+        Sim. O Multifator CRM possui interface mobile progressiva (PWA), comandos de voz estruturados, navegação integrada ao Waze/Google Maps e registro de check-in por geolocalização no funil de clientes.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       RODAPÉ (FOOTER)
+       ======================================================================== -->
+  <footer class="landing-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="brand-logo" style="margin-bottom: 1rem;">
+          <img src="data:image/png;base64,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" alt="Logo Multifator" class="logo-icon" style="width:38px;height:38px;border-radius:9px;object-fit:cover;box-shadow:0 0 15px rgba(0, 210, 255, 0.4);border:1px solid rgba(56,189,248,0.5);display:block;">
+          <div class="logo-text">Multi<span style="color: #60A5FA;">fator</span></div>
+        </a>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; max-width: 340px;">
+          Software de Vendas e Gestão Comercial para empresas que buscam controle de funil de clientes, precisão técnica em orçamentos e aceleração de fechamentos.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul class="footer-links">
+          <li><a href="#fatores">Recursos do Software</a></li>
+          <li><a href="#roi">Calculadora de ROI</a></li>
+          <li><a href="#precos">Planos & Preços</a></li>
+          <li><a href="relatorio_executivo_multifator_crm.html" target="_blank" style="color: #60A5FA; font-weight: 600;">Relatório Executivo (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Segurança & Conformidade</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="AuthController.openTermsModal()">Termos de Uso</a></li>
+          <li><a href="javascript:void(0)" onclick="AuthController.openPrivacyModal()">Privacidade & LGPD</a></li>
+          <li><a href="javascript:void(0)" onclick="AuthController.openModal('modal-2fa-setup')">Autenticação 2FA</a></li>
+          <li><a href="#">Conformidade SEFAZ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Acesso Direto</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="AuthController.openModal('modal-login')">Entrar na Conta</a></li>
+          <li><a href="javascript:void(0)" onclick="AuthController.openModal('modal-register')">Criar Conta Corporativa</a></li>
+          <li><a href="index.html">Painel do CRM</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Multifator CRM Tecnologia Ltda. CNPJ 12.345.678/0001-90. Todos os direitos reservados. Software de Vendas, Funil de Clientes e Gestão Comercial.
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL 1: LOGIN
+       ======================================================================== -->
+  <div id="modal-login" class="auth-modal-overlay">
+    <div class="auth-card">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-login')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Acessar Multifator CRM</h3>
+        <p class="auth-card-subtitle">Insira suas credenciais corporativas</p>
+      </div>
+
+      <form onsubmit="AuthController.handleLoginSubmit(event)">
+        <div class="auth-form-group">
+          <label>E-mail Corporativo</label>
+          <div class="auth-input-wrapper">
+            <input type="email" id="login-email" class="auth-input" placeholder="seuemail@empresa.com.br" required value="contato@multifatorcrm.com.br">
+          </div>
+        </div>
+
+        <div class="auth-form-group">
+          <label>Senha de Acesso</label>
+          <div class="auth-input-wrapper">
+            <input type="password" id="login-password" class="auth-input" placeholder="••••••••" required value="Multifator@2026!">
+            <button type="button" class="auth-input-toggle" onclick="AuthController.togglePassword('login-password', this)">Ver</button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; font-size: 0.8rem;">
+          <label style="display: flex; align-items: center; gap: 6px; color: var(--text-muted); cursor: pointer;">
+            <input type="checkbox" id="login-remember"> Exigir 2FA
+          </label>
+          <a href="javascript:void(0)" onclick="AuthController.closeModal('modal-login'); AuthController.openModal('modal-forgot-password');" style="color: #60A5FA; text-decoration: none;">
+            Esqueci minha senha
+          </a>
+        </div>
+
+        <button type="submit" class="btn-land btn-land-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
+          Entrar na Plataforma
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.25rem; font-size: 0.82rem; color: var(--text-muted);">
+        Ainda não possui conta? 
+        <a href="javascript:void(0)" onclick="AuthController.closeModal('modal-login'); AuthController.openModal('modal-register');" style="color: #34D399; font-weight: 600; text-decoration: none;">
+          Cadastre sua empresa
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: CADASTRO COM AUTO-FILL CNPJ
+       ======================================================================== -->
+  <div id="modal-register" class="auth-modal-overlay">
+    <div class="auth-card" style="max-width: 580px;">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-register')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Cadastro Corporativo</h3>
+        <p class="auth-card-subtitle">14 dias de teste com acesso completo aos recursos</p>
+      </div>
+
+      <form onsubmit="AuthController.handleRegisterSubmit(event)">
+        
+        <!-- CNPJ -->
+        <div class="auth-form-group">
+          <label>CNPJ da Empresa (Preenchimento Automático via Receita Federal)</label>
+          <div class="auth-input-wrapper">
+            <input type="text" id="reg-cnpj" class="auth-input" placeholder="00.000.000/0000-00" oninput="AuthController.handleCNPJAutoFill(this)" required>
+          </div>
+          <div id="cnpj-feedback" style="font-size: 0.72rem; color: #60A5FA; margin-top: 4px;">
+            Insira os dígitos do CNPJ para importar a Razão Social e endereço oficial.
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="auth-form-group">
+            <label>Razão Social / Nome Fantasia *</label>
+            <input type="text" id="reg-company-name" class="auth-input" placeholder="Nome da Empresa" required>
+          </div>
+          <div class="auth-form-group">
+            <label>Cidade / UF *</label>
+            <input type="text" id="reg-city" class="auth-input" placeholder="São Paulo - SP" required>
+          </div>
+        </div>
+
+        <div class="auth-form-group">
+          <label>Endereço Completo</label>
+          <input type="text" id="reg-address" class="auth-input" placeholder="Av. Paulista, 1000 - Bela Vista">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+          <div class="auth-form-group">
+            <label>Nome do Responsável *</label>
+            <input type="text" id="reg-name" class="auth-input" placeholder="Carlos Eduardo" required>
+          </div>
+          <div class="auth-form-group">
+            <label>E-mail Corporativo *</label>
+            <input type="email" id="reg-email" class="auth-input" placeholder="carlos@empresa.com.br" required>
+          </div>
+        </div>
+
+        <!-- Senha -->
+        <div class="auth-form-group">
+          <label>Senha de Acesso *</label>
+          <div class="auth-input-wrapper">
+            <input type="password" id="reg-password" class="auth-input" placeholder="Mínimo 8 caracteres" oninput="AuthController.checkPasswordStrength(this.value)" required>
+            <button type="button" class="auth-input-toggle" onclick="AuthController.togglePassword('reg-password', this)">Ver</button>
+          </div>
+          <div class="pwd-strength-container">
+            <div class="pwd-strength-bar">
+              <div id="reg-pwd-fill" class="pwd-strength-fill"></div>
+            </div>
+            <span id="reg-pwd-text" class="pwd-strength-text">Nível de segurança da senha</span>
+          </div>
+        </div>
+
+        <!-- Checkbox de Termos -->
+        <div style="margin: 1rem 0; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="reg-terms-check" style="margin-top: 2px;" required>
+            <span>
+              Declaro que li e concordo com os 
+              <a href="javascript:void(0)" onclick="AuthController.openTermsModal()" style="color: #60A5FA; text-decoration: underline;">Termos de Uso</a> 
+              e a 
+              <a href="javascript:void(0)" onclick="AuthController.openPrivacyModal()" style="color: #34D399; text-decoration: underline;">Política de Privacidade (LGPD)</a> 
+              do Multifator CRM.
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-land btn-land-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
+          Criar Conta e Iniciar Teste
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: ESQUECI MINHA SENHA
+       ======================================================================== -->
+  <div id="modal-forgot-password" class="auth-modal-overlay">
+    <div class="auth-card">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-forgot-password')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Redefinição de Senha</h3>
+        <p class="auth-card-subtitle">Informe seu e-mail corporativo cadastrado</p>
+      </div>
+
+      <form onsubmit="AuthController.handleForgotPasswordSubmit(event)">
+        <div class="auth-form-group">
+          <label>E-mail Cadastrado</label>
+          <input type="email" id="forgot-email" class="auth-input" placeholder="seuemail@empresa.com.br" required>
+        </div>
+
+        <button type="submit" class="btn-land btn-land-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
+          Enviar Link de Redefinição
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 4: CONFIGURAÇÃO DE 2FA
+       ======================================================================== -->
+  <div id="modal-2fa-setup" class="auth-modal-overlay">
+    <div class="auth-card" style="text-align: center;">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-2fa-setup')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Autenticação em Dois Fatores (2FA)</h3>
+        <p class="auth-card-subtitle">Google Authenticator ou Microsoft Authenticator</p>
+      </div>
+
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem;">
+        1. Abra o aplicativo autenticador no seu smartphone.<br>
+        2. Escaneie o QR Code abaixo ou utilize a chave manual:
+      </p>
+
+      <div style="background: #fff; padding: 10px; border-radius: 8px; display: inline-block; margin-bottom: 1rem;">
+        <img id="2fa-qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=otpauth://totp/MultifatorCRM:admin?secret=MULTIFATOR2FA8801&issuer=MultifatorCRM" alt="QR Code 2FA" style="width: 140px; height: 140px; display: block;">
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-card); padding: 6px 10px; border-radius: 6px; font-family: monospace; color: #60A5FA; font-size: 0.82rem; margin-bottom: 1.25rem;">
+        Chave Manual: <strong id="2fa-secret-text">MULTIFATOR2FA8801</strong>
+      </div>
+
+      <div style="font-size: 0.8rem; color: var(--text-body); margin-bottom: 6px;">
+        Insira o código de 6 dígitos gerado:
+      </div>
+
+      <div class="totp-input-grid">
+        <input type="text" maxlength="1" class="totp-box" value="4" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="8" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="2" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="9" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="1" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="6" oninput="AuthController.handleVerify2FA()">
+      </div>
+
+      <button type="button" class="btn-land btn-land-primary" style="width: 100%; justify-content: center; padding: 0.75rem;" onclick="AuthController.handleVerify2FA()">
+        Validar e Concluir Configuração
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 5: DESAFIO DE 2FA NO LOGIN
+       ======================================================================== -->
+  <div id="modal-2fa-challenge" class="auth-modal-overlay">
+    <div class="auth-card" style="text-align: center;">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-2fa-challenge')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Verificação de Segurança</h3>
+        <p class="auth-card-subtitle">Insira o código do seu aplicativo autenticador</p>
+      </div>
+
+      <div class="totp-input-grid">
+        <input type="text" maxlength="1" class="totp-box" value="5" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="1" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="8" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="3" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="7" oninput="this.nextElementSibling?.focus()">
+        <input type="text" maxlength="1" class="totp-box" value="0" oninput="AuthController.handleVerify2FA()">
+      </div>
+
+      <button type="button" class="btn-land btn-land-primary" style="width: 100%; justify-content: center; padding: 0.75rem;" onclick="AuthController.handleVerify2FA()">
+        Confirmar Acesso
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 6: TERMOS DE USO COMPLETOS
+       ======================================================================== -->
+  <div id="modal-terms-of-use" class="auth-modal-overlay">
+    <div class="auth-card" style="max-width: 700px;">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-terms-of-use')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Termos de Uso da Plataforma Multifator CRM</h3>
+        <p class="auth-card-subtitle">Condições Gerais de Prestação de Serviços SaaS</p>
+      </div>
+
+      <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem; max-height: 48vh; overflow-y: auto; font-size: 0.82rem; line-height: 1.7; color: var(--text-body); margin-bottom: 1.25rem;">
+        <h4 style="color: #60A5FA; margin-bottom: 4px;">1. OBJETO E ESCOPO</h4>
+        <p>Ao utilizar o Multifator CRM, a CONTRATANTE adere aos presentes termos, que regulam a licença de uso do software para gestão comercial, controle de funil de clientes e orçamentos industriais.</p>
+
+        <h4 style="color: #60A5FA; margin: 10px 0 4px 0;">2. DISPONIBILIDADE OPERACIONAL (SLA)</h4>
+        <p>A Multifator CRM garante disponibilidade operacional média de 99,9%, com rotinas automáticas de backup criptografado.</p>
+
+        <h4 style="color: #60A5FA; margin: 10px 0 4px 0;">3. VALIDADE DAS ASSINATURAS DIGITAIS</h4>
+        <p>As partes reconhecem a plena eficácia executiva das assinaturas eletrônicas emitidas na plataforma com Hash SHA-256 (MP 2.200-2/2001 e Lei 14.063/2020).</p>
+      </div>
+
+      <button type="button" class="btn-land btn-land-primary" style="width: 100%; justify-content: center;" onclick="AuthController.closeModal('modal-terms-of-use')">
+        Entendido e Aceito
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 7: POLÍTICA DE PRIVACIDADE & LGPD
+       ======================================================================== -->
+  <div id="modal-privacy-policy" class="auth-modal-overlay">
+    <div class="auth-card" style="max-width: 700px;">
+      <button class="btn-auth-close" onclick="AuthController.closeModal('modal-privacy-policy')">&times;</button>
+      
+      <div class="auth-card-header">
+        <h3 class="auth-card-title">Privacidade & Conformidade LGPD</h3>
+        <p class="auth-card-subtitle">Conformidade com a Lei Federal nº 13.709/2018</p>
+      </div>
+
+      <div style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1.25rem; max-height: 48vh; overflow-y: auto; font-size: 0.82rem; line-height: 1.7; color: var(--text-body); margin-bottom: 1.25rem;">
+        <h4 style="color: #34D399; margin-bottom: 4px;">1. TRATAMENTO DE DADOS PESSOAIS</h4>
+        <p>A Multifator CRM coleta dados exclusivamente para a execução do contrato comercial e cumprimento de obrigações tributárias e fiscais.</p>
+
+        <h4 style="color: #34D399; margin: 10px 0 4px 0;">2. SEGURANÇA E CRIPTOGRAFIA</h4>
+        <p>Todas as comunicações utilizam criptografia em trânsito (TLS 1.3) e armazenamento protegido contra acessos não autorizados.</p>
+      </div>
+
+      <button type="button" class="btn-land btn-land-accent" style="width: 100%; justify-content: center;" onclick="AuthController.closeModal('modal-privacy-policy')">
+        Entendido e De Acordo
+      </button>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/pwa-install.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>
